@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:50:27 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/13 16:37:54 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 09:40:28 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <unistd.h> //write
 # include <stdarg.h> //va_start, va_arg, va_copy, va_end
 
-int	ft_putchar_pf(char c);
-int	ft_putstr_pf(const char *str);
-int	ft_putnbr_pf(int n);
-int	ft_putunbr_pf(unsigned int n);
-int	ft_puthex_pf(unsigned int n, char format);
-int	ft_putptr_pf(void *ptr);
+int	ft_putchar(char c);
+int	ft_putstr(const char *str);
+int	ft_putnbr(int n);
+int	ft_putunbr(unsigned int n);
+int	ft_puthex(unsigned int n, char format);
+int	ft_putptr(void *ptr);
 
 #endif

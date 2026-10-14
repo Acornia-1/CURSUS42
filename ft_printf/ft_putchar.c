@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:07:24 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/13 16:15:23 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 09:54:39 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_pf(char c)
+int	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	return(write (1, &c, 1));
 }

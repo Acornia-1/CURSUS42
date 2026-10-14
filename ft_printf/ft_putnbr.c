@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_pf.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:22:14 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/13 16:25:12 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 10:16:50 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_pf(int n)
+int	ft_putnbr(int n)
 {
 	int	count;
 
 	count = 0;
 	if (n == -2147483648)
 	{
-		ft_putstr_pf("-2147483648");
+		ft_putstr("-2147483648");
 		return (11);
 	}
 	if (n < 0)
 	{
-		count += ft_putchar_pf('-');
+		ft_putchar('-');
 		n = -n;
 	}
 	if (n > 9)
-		count += ft_putnbr_pf(n / 10);
-	count += ft_putchar_pf((n % 10) + '0');
+		count += ft_putnbr(n / 10);
+	count += ft_putchar((n % 10) + '0');
 	return (count);
 }
 
-int	ft_putunbr_pf(unsigned int n)
+int	ft_putunbr(unsigned int n)
 {
 	int	count;
 
 	count = 0;
 	if (n > 9)
-		count += ft_putunbr_pf(n / 10);
-	count += ft_putchar_pf((n % 10) + '0');
+		count += ft_putunbr(n / 10);
+	count += ft_putchar((n % 10) + '0');
 	return (count);
 }

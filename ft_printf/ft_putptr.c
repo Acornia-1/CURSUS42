@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_pf.c                                     :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 15:16:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/13 16:13:14 by acornia          ###   ########.fr       */
+/*   Created: 2026/10/13 16:27:45 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/14 10:16:08 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_pf(const char *str)
+static int	ft_putptr_hex(unsigned long n);
+
+int	ft_putptr(void *ptr)
 {
-	int	count;
+	unsigned long	addres;
+	int				count;
+
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	count = 0;
+	addres = (unsigned long)ptr;
+	count += ft_putstr("0x");
+	count += ft_putptr_hex(addres);
+	return (count);
+}
+
+static int	ft_putptr_hex(unsigned long n)
+{
+	char	*base;
+	int		count;
 
 	count = 0;
-	while (*str != '\0')
-	{
-		count += ft_putchar_pf(*str);
-		str++;
-	}
+	base = "0123456789abcdef";
+	if (n >= 16)
+		count += ft_putptr_hex(n / 16);
+	count += ft_putchar(base[n % 16]);
 	return (count);
 }
