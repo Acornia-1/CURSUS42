@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_utils_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 15:07:24 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 09:54:39 by acornia          ###   ########.fr       */
+/*   Created: 2026/10/14 15:32:20 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/14 15:58:34 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_putchar(char c)
+int	ft_putpadding(char c, int len)
 {
-	return(write (1, &c, 1));
+	int	count;
+
+	count = 0;
+	while (len > 0)
+	{
+		count += ft_putchar(c);
+		len--;
+	}
+	return (count);
 }

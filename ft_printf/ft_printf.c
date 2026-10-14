@@ -6,30 +6,60 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:05:07 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 10:22:42 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 14:36:09 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#include <limits.h>
-#include <stdio.h>
+static int	ft_format(va_list args, char spec);
 
-int	ft_printf()
-
-int main()
+int	ft_printf(char const *str, ...)
 {
-	char *str = "hola";
-	ft_putstr("hola\n");
-	ft_putchar('\n');
-	ft_puthex(255, 'x');
-	ft_putchar('\n');
-	ft_puthex(255, 'X');
-	ft_putchar('\n');
-	ft_putnbr(INT_MIN);
-	ft_putchar('\n');
-	ft_putunbr(UINT_MAX);
-	ft_putchar('\n');
-	ft_putptr(str);
-	printf("\n%p", str);
+	va_list	args;
+	int		i;
+	int		count;
+
+	if (!str)
+		return (-1);
+	i = 0;
+	count = 0;
+	va_start(args, str);
+	while (str[i] != '\0')
+	{
+		if (str[i] == '%')
+		{
+			i++;
+			if (str[i] != '\0')
+				count += ft_format(args, str[i]);
+		}
+		else
+			count += ft_putchar(str[i]);
+		if (str[i] != '\0')
+			i++;
+	}
+	va_end (args);
+	return (count);
+}
+
+static int	ft_format(va_list args, char spec)
+{
+	int	count;
+
+	count = 0;
+	if (spec == 'c')
+		count += ft_putchar(va_arg(args, int));
+	else if (spec == 's')
+		count += ft_putstr(va_arg(args, char *));
+	else if (spec == 'p')
+		count += ft_putptr(va_arg(args, void *));
+	else if (spec == 'd' || spec == 'i')
+		count += ft_putnbr(va_arg(args, int));
+	else if (spec == 'u')
+		count += ft_putunbr(va_arg(args, unsigned int));
+	else if (spec == 'x' || spec == 'X')
+		count += ft_puthex(va_arg(args, unsigned int), spec);
+	else if (spec == '%')
+		count += ft_putchar('%');
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:45:04 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 10:14:52 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 12:56:06 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_puthex(unsigned int n, char format)
 
 	if (format == 'x')
 		base = "0123456789abcdef";
-	else if (format == 'X')
+	else
 		base = "0123456789ABCDEF";
 	count = 0;
 	if (n >= 16)

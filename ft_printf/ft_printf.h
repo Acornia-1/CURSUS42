@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 14:50:27 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 09:40:28 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 13:26:16 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	ft_putnbr(int n);
 int	ft_putunbr(unsigned int n);
 int	ft_puthex(unsigned int n, char format);
 int	ft_putptr(void *ptr);
+int	ft_printf(char const *str, ...);
 
 #endif

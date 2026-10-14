@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:22:14 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 10:16:50 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/14 13:24:45 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putnbr(int n)
 	}
 	if (n < 0)
 	{
-		ft_putchar('-');
+		count += ft_putchar('-');
 		n = -n;
 	}
 	if (n > 9)
