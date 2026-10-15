@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:05:07 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/14 14:36:09 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/15 10:19:06 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ static int	ft_format(va_list args, char spec);
 int	ft_printf(char const *str, ...)
 {
 	va_list	args;
-	int		i;
 	int		count;
+	int		i;
 
-	if (!str)
-		return (-1);
 	i = 0;
 	count = 0;
 	va_start(args, str);
@@ -30,15 +28,14 @@ int	ft_printf(char const *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			if (str[i] != '\0')
-				count += ft_format(args, str[i]);
+			count += ft_format(args, str[i]);
 		}
 		else
 			count += ft_putchar(str[i]);
 		if (str[i] != '\0')
 			i++;
 	}
-	va_end (args);
+	va_end(args);
 	return (count);
 }
 
@@ -49,17 +46,17 @@ static int	ft_format(va_list args, char spec)
 	count = 0;
 	if (spec == 'c')
 		count += ft_putchar(va_arg(args, int));
-	else if (spec == 's')
+	if (spec == 's')
 		count += ft_putstr(va_arg(args, char *));
-	else if (spec == 'p')
+	if (spec == 'p')
 		count += ft_putptr(va_arg(args, void *));
-	else if (spec == 'd' || spec == 'i')
+	if (spec == 'd' || spec == 'i')
 		count += ft_putnbr(va_arg(args, int));
-	else if (spec == 'u')
+	if (spec == 'u')
 		count += ft_putunbr(va_arg(args, unsigned int));
-	else if (spec == 'x' || spec == 'X')
+	if (spec == 'x' || spec == 'X')
 		count += ft_puthex(va_arg(args, unsigned int), spec);
-	else if (spec == '%')
+	if (spec == '%')
 		count += ft_putchar('%');
 	return (count);
 }
