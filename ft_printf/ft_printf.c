@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:05:07 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/15 10:19:06 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:15:42 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printf(char const *str, ...)
 	int		count;
 	int		i;
 
+	if (!str)
+		return (-1);
 	i = 0;
 	count = 0;
 	va_start(args, str);
