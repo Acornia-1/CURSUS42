@@ -22,7 +22,7 @@ Las reglas disponibles en el `Makefile` son:
 
 ## Recursos
 
-* **Uso de IA:** Se ha usado la Inteligencia Artificial para documentarse y como apoyo para entender y solucionar problemas de memoria.
+* **Uso de IA:** Se ha usado la Inteligencia Artificial para documentarse y como apoyo para entender el funcionamiento de las funciones variaticas.
 * **Uso del Man.** Se ha usado el manual que viene por defecto en Linux.
 
 ### ¿Qué hace exactamente esta librería?
