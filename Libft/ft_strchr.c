@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 16:21:21 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/13 11:38:55 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/19 11:09:07 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != (char)c)
 	{
 		if (*s == '\0')
-		return (NULL);
-	s++;
-}
+			return (NULL);
+		s++;
+	}
 	return ((char *)s);
 }
