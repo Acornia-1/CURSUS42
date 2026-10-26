@@ -6,7 +6,7 @@
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 13:11:30 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/19 15:22:16 by acornia          ###   ########.fr       */
+/*   Updated: 2026/10/19 15:35:20 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static char	*read_and_stash(int fd, char *stash)
 		bytes_read = read(fd, buff, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free(buff);
 			free(stash);
+			free(buff);
 			return (NULL);
 		}
 		buff[bytes_read] = '\0';

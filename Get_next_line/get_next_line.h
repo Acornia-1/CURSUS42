@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acornia <acornia@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 15:16:00 by acornia           #+#    #+#             */
-/*   Updated: 2026/10/19 12:48:03 by acornia          ###   ########.fr       */
+/*   Created: 2026/10/16 12:39:04 by acornia           #+#    #+#             */
+/*   Updated: 2026/10/21 15:49:03 by acornia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_putstr(const char *str)
-{
-	int	count;
+# include <unistd.h>
+# include <stdlib.h>
 
-	count = 0;
-	if (!str)
-		return (ft_putstr("(null)"));
-	while (str[count] != '\0')
-	{
-		ft_putchar(str[count]);
-		count++;
-	}
-	return (count);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-int	ft_putchar(char c)
-{
-	return (write (1, &c, 1));
-}
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strjoin(char *str1, char *str2);
+size_t	ft_strlen(const char *str);
+
+#endif
